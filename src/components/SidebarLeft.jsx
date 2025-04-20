@@ -119,6 +119,16 @@ const Sidebar = () => {
         >
           🏠 My Communities
         </NavLink>
+        <NavLink
+          to="/profile/default"
+          className={`p-3 rounded-lg text-lg ${
+            location.pathname === `/profile/default`
+              ? "bg-white text-blue-600 font-bold"
+              : "hover:bg-blue-500"
+          }`}
+        >
+          My Profile
+        </NavLink>
       </nav>
 
       <div className="mt-auto pt-6 border-t border-gray-700">

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './pages/RootLayout.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
@@ -16,110 +15,96 @@ import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
 import Logout from './pages/Logout.jsx'
 import MyCommunities from './pages/MyCommunities.jsx';
-import CreateCommunity from './pages/CreateCommunity.jsx'
-import CreateElection from './pages/CreateElections.jsx'
-import JoinCommunity from './pages/JoinCommunity.jsx'
-import Profile from './pages/Profile.jsx'
-import ManageCommunity from './pages/ManageCommunity.jsx'
+import CreateCommunity from './pages/CreateCommunity.jsx';
+import CreateElection from './pages/CreateElections.jsx';
+import JoinCommunity from './pages/JoinCommunity.jsx';
+import Profile from './pages/Profile.jsx';
+import ManageCommunity from './pages/ManageCommunity.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout/>,
+    element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path : "landing",
         index: true,
+        element: <Navigate to="/landing" replace />
+      },
+      {
+        path: 'landing',
         element: <Landing />
       },
       {
-        path:"home",
+        path: 'home',
         element: <Home />
       },
       {
-        path:"login",
-        element:<Login />
+        path: 'login',
+        element: <Login />
       },
       {
-        path: "register",
-        element: <Register/>
+        path: 'register',
+        element: <Register />
       },
       {
-        path:"about",
+        path: 'about',
         element: <About />
       },
       {
-        path: "results",
+        path: 'results',
         element: <Results />
       },
       {
-        path: "/communities/:id/createelections",
+        path: 'communities/:id/createelections',
         element: <CreateElection />
       },
       {
-        path: "communities/:id/elections",
+        path: 'communities/:id/elections',
         element: <Elections />
       },
       {
-        path: "elections/:id",
-        element: <ElectionDetails/>
+        path: 'elections/:id',
+        element: <ElectionDetails />
       },
       {
-        path:"elections/:id/candidates",
+        path: 'elections/:id/candidates',
         element: <Candidates />
       },
       {
-        path: "congrats",
-        element: <Congrats/>
-      },
-      {
-        path:"logout",
-        element:<Logout />
+        path: 'congrats',
+        element: <Congrats />
       },
       {
         path: 'communities/:id',
         element: <MyCommunities />
       },
       {
-        path:'communities/:id/manage',
-        element:<ManageCommunity/>
-      },
-      // {
-      //   path: 'communities/:id/admin',
-      //   element: <MyCommunities role="admin" />
-      // },
-      // {
-      //   path: 'communities/:id/voter',
-      //   element: <MyCommunities role="voter" />
-      // },
-      
-      {
-        path:'communities/:id/create',
-        element:<CreateCommunity />
+        path: 'communities/:id/manage',
+        element: <ManageCommunity />
       },
       {
-        path:'communities/:id/join',
+        path: 'communities/:id/create',
+        element: <CreateCommunity />
+      },
+      {
+        path: 'communities/:id/join',
         element: <JoinCommunity />
       },
       {
-        path:'profile',
-        element:<Profile />
-      },
-
-
+        path: 'profile/:id',
+        element: <Profile />
+      }
     ]
   }
-])
+]);
 
 function App() {
-  
-
   return (
     <>
-      <RouterProvider router= {router} />
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
