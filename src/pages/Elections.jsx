@@ -70,16 +70,46 @@
 // export default Elections;
 
 
-import React, { useState } from 'react';
-import { elections as dummyElections } from '../data';
+import React, { useState,useEffect } from 'react';
 import Election from '../components/Election';
 import Sidebar from '../components/SidebarLeft';
 
 const Elections = () => {
-  const [elections, setElections] = useState(dummyElections);
+  const [elections, setElections] = useState([]);
   const [filter, setFilter] = useState('ongoing'); // 'ongoing' | 'past'
-
+  const [loading, setLoading] = useState(true);
   const filteredElections = elections.filter(e => e.status === filter);
+
+  const fetchElections = async () => {
+    try {
+      setLoading(true);
+      const endpoint = filter === 'ongoing' ? '/activeElection' : '/pastElections';
+      const res = await axios.post(
+        `http://localhost:5001${endpoint}`,
+        {},
+        {
+          headers: {
+            token: localStorage.getItem('token'), // assuming you're storing JWT token
+          },
+        }
+      );
+      const allElections = res.data.flatMap(community => community.elections.map(election => ({
+        ...election,
+        community_name: community.community_name,
+      })));
+
+      setElections(allElections);
+    } catch (err) {
+      console.error('Error fetching elections:', err);
+      setElections([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchElections();
+  }, [filter]);
 
   return (
     <section className="flex min-h-screen">
