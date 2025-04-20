@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './pages/RootLayout.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'

@@ -50,30 +50,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  return (
-    <header className="w-full fixed top-0 left-0 h-16 bg-gray-950 text-white flex items-center justify-between px-6 shadow-md z-30">
-      {/* Logo - Centered */}
-      <Link to="/Home" className="text-2xl font-bold text-emerald-400 mx-auto sm:mx-0">
-        CASTORA
-      </Link>
+  // return (
+  //   <header className="w-full fixed top-0 left-0 h-16 bg-gray-950 text-white flex items-center justify-between px-6 shadow-md z-30">
+  //     {/* Logo - Centered */}
+  //     <Link to="/Home" className="text-2xl font-bold text-emerald-400 mx-auto sm:mx-0">
+  //       CASTORA
+  //     </Link>
 
-      {/* Navigation Links */}
-      <nav className="flex gap-8 items-center text-lg sm:ml-auto">
-        <Link
-          to="/Profile"
-          className="hover:text-emerald-400 transition px-3 py-1 rounded-lg focus:outline-none"
-        >
-          Profile
-        </Link>
-        <Link
-          to="/About"
-          className="hover:text-emerald-400 transition px-3 py-1 rounded-lg focus:outline-none"
-        >
-          About
-        </Link>
-      </nav>
-    </header>
-  );
+  //     {/* Navigation Links */}
+  //     <nav className="flex gap-8 items-center text-lg sm:ml-auto">
+  //       <Link
+  //         to="/Profile"
+  //         className="hover:text-emerald-400 transition px-3 py-1 rounded-lg focus:outline-none"
+  //       >
+  //         Profile
+  //       </Link>
+  //       <Link
+  //         to="/About"
+  //         className="hover:text-emerald-400 transition px-3 py-1 rounded-lg focus:outline-none"
+  //       >
+  //         About
+  //       </Link>
+  //     </nav>
+  //   </header>
+  // );
 };
 
 export default Navbar;
