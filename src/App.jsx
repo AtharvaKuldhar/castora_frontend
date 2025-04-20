@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './pages/RootLayout.jsx'
@@ -13,7 +12,7 @@ import Login from './pages/Login.jsx'
 import Landing from './pages/Landing.jsx'
 import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
-import Logout from './pages/Logout.jsx'
+// import Logout from './pages/Logout.jsx'
 import MyCommunities from './pages/MyCommunities.jsx';
 import CreateCommunity from './pages/CreateCommunity.jsx';
 import CreateElection from './pages/CreateElections.jsx';
@@ -27,11 +26,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <Navigate to="/landing" replace />
-      },
-      {
+     {
         path: 'landing',
         element: <Landing />
       },
